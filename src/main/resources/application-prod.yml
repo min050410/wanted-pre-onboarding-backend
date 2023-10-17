@@ -1,0 +1,18 @@
+spring:
+  config:
+    activate:
+      on-profile: prod
+
+  datasource:
+    hikari:
+      jdbc-url: ${wanted.spring.datasource.url}
+      username: ${wanted.spring.datasource.username}
+      password: ${wanted.spring.datasource.password}
+
+  jpa:
+    hibernate:
+      ddl-auto: validate
+
+springdoc:
+  swagger-ui:
+    path: "/swagger-ui.html"
