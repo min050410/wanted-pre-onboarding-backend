@@ -28,7 +28,7 @@ public class JobOpening extends BaseTimeEntity {
     @Column(nullable = false, length = 64)
     private String position;
 
-    @Column(nullable = false, length = 64)
+    @Column(nullable = false, length = 10)
     private String tech;
 
     @Lob
