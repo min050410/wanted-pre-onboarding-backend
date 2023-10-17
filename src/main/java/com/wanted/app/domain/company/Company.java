@@ -33,7 +33,7 @@ public class Company {
     @Column(nullable = false, length = 64)
     private String region;
 
-    @OneToMany(mappedBy = "jobOpening", cascade = CascadeType.ALL, orphanRemoval = true)
+    @OneToMany(mappedBy = "company", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<JobOpening> jobOpeningList = new ArrayList<>();
 
     @Builder
