@@ -13,4 +13,6 @@ public class ApiPath {
     // 지원
     public static final String JOB_APPLY = "/api/v1/apply";
 
+    // 에러 핸들러
+    public static final String ERROR = "/api/v1/error";
 }
