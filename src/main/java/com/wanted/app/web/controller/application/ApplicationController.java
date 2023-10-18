@@ -19,7 +19,7 @@ public class ApplicationController {
 
     private final ApplicationService applicationService;
 
-    @Operation(summary = "회사 지원")
+    @Operation(summary = "채용 공고 지원")
     @PostMapping(value = ApiPath.JOB_APPLY)
     public ResponseEntity<Void> uploadApplication(
         @Valid @RequestBody ApplicationRequestDto body

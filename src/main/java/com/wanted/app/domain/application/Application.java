@@ -1,6 +1,6 @@
 package com.wanted.app.domain.application;
 
-import com.wanted.app.domain.company.Company;
+import com.wanted.app.domain.jobOpening.JobOpening;
 import com.wanted.app.domain.member.Member;
 import jakarta.persistence.Entity;
 import jakarta.persistence.FetchType;
@@ -24,16 +24,16 @@ public class Application {
     private Long id;
 
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "company_id", nullable = false)
-    private Company company;
+    @JoinColumn(name = "job_opening_id", nullable = false)
+    private JobOpening jobOpening;
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "member_id", nullable = false)
     private Member member;
 
     @Builder
-    private Application(Company company, Member member) {
-        this.company = company;
+    private Application(JobOpening jobOpening, Member member) {
+        this.jobOpening = jobOpening;
         this.member = member;
     }
 

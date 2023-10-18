@@ -1,7 +1,7 @@
 package com.wanted.app.domain.application;
 
-import com.wanted.app.domain.company.Company;
-import com.wanted.app.domain.company.CompanyService;
+import com.wanted.app.domain.jobOpening.JobOpening;
+import com.wanted.app.domain.jobOpening.JobOpeningService;
 import com.wanted.app.domain.member.Member;
 import com.wanted.app.domain.member.MemberService;
 import com.wanted.app.web.dto.application.ApplicationRequestDto;
@@ -13,21 +13,21 @@ import org.springframework.transaction.annotation.Transactional;
 @RequiredArgsConstructor
 public class ApplicationService {
 
-    private final CompanyService companyService;
+    private final JobOpeningService jobOpeningService;
 
     private final MemberService memberService;
 
     private final ApplicationRepository applicationRepository;
 
     /**
-     * 회사 지원
+     * 채용 공고 지원
      */
     @Transactional
     public void create(ApplicationRequestDto body) {
-        Company company = companyService.findCompanyById(body.getCompanyId());
+        JobOpening jobOpening = jobOpeningService.findJobOpeningById(body.getJobOpeningId());
         Member member = memberService.findMemberById(body.getMemberId());
 
-        Application application = body.toApplication(company, member);
+        Application application = body.toApplication(jobOpening, member);
         applicationRepository.save(application);
     }
 

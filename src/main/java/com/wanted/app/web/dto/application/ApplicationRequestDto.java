@@ -1,7 +1,7 @@
 package com.wanted.app.web.dto.application;
 
 import com.wanted.app.domain.application.Application;
-import com.wanted.app.domain.company.Company;
+import com.wanted.app.domain.jobOpening.JobOpening;
 import com.wanted.app.domain.member.Member;
 import jakarta.validation.constraints.NotNull;
 import lombok.AccessLevel;
@@ -15,14 +15,14 @@ import lombok.NoArgsConstructor;
 public class ApplicationRequestDto {
 
     @NotNull
-    private Long companyId;
+    private Long jobOpeningId;
 
     @NotNull
     private Long memberId;
 
-    public Application toApplication(Company company, Member member) {
+    public Application toApplication(JobOpening jobOpening, Member member) {
         return Application.builder()
-            .company(company)
+            .jobOpening(jobOpening)
             .member(member)
             .build();
     }

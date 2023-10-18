@@ -37,7 +37,7 @@ public class JobOpeningService {
      */
     @Transactional
     public void updateJobOpening(Long id, JobOpeningUpdateRequestDto body) {
-        JobOpening jobOpening = findById(id);
+        JobOpening jobOpening = findJobOpeningById(id);
 
         JobOpening requestJobOpening = body.toJobOpening();
         jobOpening.update(requestJobOpening);
@@ -47,7 +47,7 @@ public class JobOpeningService {
      * 채용 공고 삭제
      */
     public void deleteJobOpening(Long id) {
-        JobOpening jobOpening = findById(id);
+        JobOpening jobOpening = findJobOpeningById(id);
 
         jobOpeningRepository.delete(jobOpening);
     }
@@ -66,7 +66,7 @@ public class JobOpeningService {
      * 채용 공고 상세 조회
      */
     public JobOpeningDetailResponseDto findJobOpeningDetail(Long id) {
-        JobOpening jobOpening = findById(id);
+        JobOpening jobOpening = findJobOpeningById(id);
 
         return JobOpeningDetailResponseDto.of(jobOpening);
     }
@@ -82,7 +82,7 @@ public class JobOpeningService {
     }
 
     @Transactional(readOnly = true)
-    public JobOpening findById(Long id) {
+    public JobOpening findJobOpeningById(Long id) {
         return jobOpeningRepository.findById(id)
             .orElseThrow(JobOpeningNotFoundException::new);
     }
