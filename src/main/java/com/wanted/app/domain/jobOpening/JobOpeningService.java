@@ -17,9 +17,9 @@ import org.springframework.transaction.annotation.Transactional;
 @RequiredArgsConstructor
 public class JobOpeningService {
 
-    private final JobOpeningRepository jobOpeningRepository;
-
     private final CompanyService companyService;
+
+    private final JobOpeningRepository jobOpeningRepository;
 
     /**
      * 채용 공고 등록
